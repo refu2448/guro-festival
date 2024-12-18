@@ -1,20 +1,24 @@
 <!-- index.html -->
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <title>개인 타이머</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>개인 타이머</h1>
+<!-- index.html -->
+
+<body>
+  <h1>개인 타이머</h1>
+
+  <!-- 사용자 이름 입력 섹션 추가 -->
+  <div id="nameInputSection">
+    <label for="username">사용자 이름:</label>
+    <input type="text" id="username" placeholder="이름을 입력하세요" />
+    <button id="submitName">확인</button>
+  </div>
+
+  <!-- 타이머 및 정지 버튼을 초기에 숨김 -->
+  <div id="timerSection" style="display: none">
     <div id="timer">00:00:00</div>
-    <button id="startButton">시작</button>
     <button id="stopButton">정지</button>
+  </div>
 
-    <h2>기록</h2>
-    <ul id="recordList"></ul>
+  <h2>기록</h2>
+  <ul id="recordList"></ul>
 
-    <script src="script.js"></script>
-  </body>
-</html>
+  <script src="script.js"></script>
+</body>
