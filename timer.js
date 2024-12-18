@@ -14,8 +14,11 @@ let startTime = 0;
 let elapsedTime = 0;
 let timerInterval;
 
+// DOM 요소 가져오기
 const timerDisplay = document.getElementById('timer');
 const recordList = document.getElementById('recordList');
+const stopButton = document.getElementById('stopButton');
+const resetButton = document.getElementById('resetButton');
 
 // 시간 포맷 함수
 function timeToString(time) {
@@ -50,12 +53,21 @@ function stopTimer() {
   // 초기화
   elapsedTime = 0;
   timerDisplay.textContent = '00:00:00';
-  // 타이머 재시작 (선택 사항)
-  startTimer();
+}
+
+// 타이머 리셋 함수
+function resetTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+  elapsedTime = 0;
+  timerDisplay.textContent = '00:00:00';
+  recordList.innerHTML = ''; // 모든 기록 삭제 (선택 사항)
+  startTimer(); // 타이머 재시작 (필요 시)
 }
 
 // 페이지 로드 시 타이머 자동 시작
 window.onload = startTimer;
 
-// 정지 버튼 이벤트 리스너 추가
-document.getElementById('stopButton').addEventListener('click', stopTimer);
+// 버튼 이벤트 리스너 추가
+stopButton.addEventListener('click', stopTimer);
+resetButton.addEventListener('click', resetTimer);
