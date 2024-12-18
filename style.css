@@ -1,0 +1,27 @@
+/* style.css */
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 50px;
+}
+
+#timer {
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+#recordList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#recordList li {
+  font-size: 24px;
+  margin: 5px 0;
+}
