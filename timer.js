@@ -71,3 +71,23 @@ window.onload = startTimer;
 // 버튼 이벤트 리스너 추가
 stopButton.addEventListener('click', stopTimer);
 resetButton.addEventListener('click', resetTimer);
+
+// timer.js - 이름 입력 시 HTML 이스케이프 처리 추가
+
+// 이름 입력 시 안전하게 처리
+function escapeHTML(str) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+// 이름 입력 제출 시 에스케이프 처리
+document.getElementById('submitName').addEventListener('click', () => {
+  let nameInput = document.getElementById('username').value.trim();
+  if (nameInput) {
+    nameInput = escapeHTML(nameInput);
+    window.location.href = `timer.html?user=${encodeURIComponent(nameInput)}`;
+  } else {
+    alert('이름을 입력해주세요.');
+  }
+});
