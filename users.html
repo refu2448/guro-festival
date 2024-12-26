@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Timers</title>
+    <link rel="stylesheet" type="text/css" href="users.css" />
+  </head>
+  <body>
+    <h1>Users and Timers</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Hash</th>
+          <th>Timer Start</th>
+          <th>Timer Duration</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody">
+        <!-- JavaScript를 통해 이곳에 테이블 행을 삽입합니다. -->
+      </tbody>
+    </table>
+
+    <script>
+      fetch('http://localhost:3000/users')
+        .then((response) => response.json())
+        .then((users) => {
+          users.sort((a, b) => {
+            const durationA = a.timer?.duration ?? Infinity; // 기록이 없으면 무한대로
+            const durationB = b.timer?.duration ?? Infinity;
+            return durationA - durationB; // 오름차순 정렬
+          });
+
+          const userTableBody = document.getElementById('userTableBody');
+          userTableBody.innerHTML = users
+            .map(
+              (user) => `
+          <tr>
+            <td>${user.name}</td>
+            <td>${user.hash}</td>
+            <td>${
+              user.timer?.start
+                ? new Date(user.timer.start).toLocaleString()
+                : 'Not started'
+            }</td>
+            <td>${
+              user.timer?.duration !== null
+                ? `${user.timer.duration} seconds`
+                : 'In progress'
+            }</td>
+          </tr>
+        `
+            )
+            .join('');
+        });
+    </script>
+  </body>
+</html>
