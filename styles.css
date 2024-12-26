@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 화면 상단 쪽으로 배치 */
+  height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #e0f7fa;
+  padding-top: 20px; /* 상단 여백 추가 */
+}
+
+.timer-container {
+  text-align: center;
+  padding: 40px;
+  background-color: #e0f7fa;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  background-color: #e0f7fa; /* 타이머 주변 색상 채우기 */
+}
+
+h1 {
+  font-size: 6em; /* 글씨 크기 증가 */
+  margin-bottom: 25px;
+  color: #00796b;
+}
+
+#display {
+  font-size: 6em; /* 글씨 크기 증가 */
+  margin-bottom: 50px; /* 타이머와 기록 사이의 간격 */
+  color: #004d40;
+}
+
+#recordDisplay {
+  font-size: 3em; /* 글씨 크기 증가 */
+  color: #00796b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .timer-container {
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  #display {
+    font-size: 4em;
+  }
+
+  #recordDisplay {
+    font-size: 2em;
+  }
+}
