@@ -6,7 +6,7 @@ const crypto = require('crypto');
 let users = []; // 임시로 사용자 정보를 저장할 배열
 app.use(cors());
 
-app.get('/account/:name', (req, res) => {
+app.get('https://port-0-guro-festival-m54r278x8ddf4618.sel4.cloudtype.app/play/5b6765a8a3/account/:name', (req, res) => {
   const { name } = req.params;
 
   function generateHash(name) {
