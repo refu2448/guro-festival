@@ -17,7 +17,7 @@ app.get('/account/:name', (req, res) => {
       .slice(0, 10); // 처음 10자리만 사용
   }
   const hash = generateHash(name);
-  const link = `http://127.0.0.1:3000/play/${hash}`;
+  const link = `https://port-0-guro-festival-m54r278x8ddf4618.sel4.cloudtype.app/play/${hash}`;
 
   users.push({ name, hash, timer: null, checkCount: 0 });
 
